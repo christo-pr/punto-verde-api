@@ -4,6 +4,7 @@
   "main": "app.js",
   "dependencies": {
     "bluebird": "^3.5.1",
+    "knex": "^0.13.0",
     "lodash": "^4.17.4",
     "passport": "^0.4.0",
     "passport-amazon-token": "^2.1.0",
@@ -25,7 +26,7 @@
     "passport-yandex-token": "^2.1.0",
     "pluralize": "^7.0.0",
     "rc": "1.1.6",
-    "sails": "0.11.4",
+    "sails": "^0.12.14",
     "sails-disk": "^0.10.10",
     "sails-memory": "^0.10.5",
     "sails-mongo": "^0.12.2",
