@@ -24,6 +24,7 @@
     "passport-windows-live-token": "^2.1.0",
     "passport-yahoo-token": "^2.1.0",
     "passport-yandex-token": "^2.1.0",
+    "pg": "^7.3.0",
     "pluralize": "^7.0.0",
     "rc": "1.1.6",
     "sails": "^0.12.14",
