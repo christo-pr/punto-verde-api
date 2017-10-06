@@ -34,7 +34,8 @@
     "sails-service-cipher": "^3.2.1",
     "sails-service-hash": "^3.2.1",
     "sails-service-mailer": "^3.2.1",
-    "sails-service-storage": "^3.2.1"
+    "sails-service-storage": "^3.2.1",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "esdoc": "0.4.3",
