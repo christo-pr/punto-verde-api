@@ -10,6 +10,12 @@ const uuid = require('uuid/v1');
 module.exports = {
   schema: true,
 
+  tableName: 'sectors',
+
+  autoCreatedAt: false,
+
+ 	autoUpdatedAt: false,
+
   attributes: {
     name: {
       type: 'string',

@@ -31,6 +31,7 @@
     "sails-disk": "^0.10.10",
     "sails-memory": "^0.10.5",
     "sails-mongo": "^0.12.2",
+    "sails-postgresql": "^0.11.4",
     "sails-service-cipher": "^3.2.1",
     "sails-service-hash": "^3.2.1",
     "sails-service-mailer": "^3.2.1",

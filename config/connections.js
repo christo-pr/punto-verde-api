@@ -53,12 +53,7 @@ module.exports = {
      */
     postgresql: {
       adapter: 'sails-postgresql',
-      database: 'sails-rest-api',
-      host: 'localhost',
-      user: '',
-      password: '',
-      port: 5432,
-      pool: false,
+      url: process.env.PG_CONNECTION_STRING,
       ssl: false
     },
 
