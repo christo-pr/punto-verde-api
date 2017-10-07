@@ -18,7 +18,7 @@ module.exports = (req, res) => {
   criteria[pkName] = pk;
   
   Model
-    .update(criteria, _.omit(values, pkName))
+    .update(criteria, _.omit(values, [pkName, 'id']))
     .then(records => records[0] ? res.ok(records[0]) : res.notFound())
     .catch(res.negotiate);
 };

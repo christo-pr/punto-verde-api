@@ -9,6 +9,12 @@
 module.exports = {
 	models: {
 		/**
+		 * Removed the sail autogenerating pk
+		 * @type {String}
+		 */
+		autoPK: true,
+
+		/**
 		 * Your app's default connection
 		 * @type {String}
 		 */
@@ -27,6 +33,10 @@ module.exports = {
 		 * @type {Object}
 		 */
 		attributes: {
+			id:{
+				type: 'integer'
+			},
+
 			createdAt: {
 				type: 'datetime',
 				defaultsTo: null,
@@ -40,7 +50,9 @@ module.exports = {
 			},
 
 			uuid: {
-				type: 'text'
+				type: 'text',
+				primaryKey: true,
+				index: true
 			}
 		}
 	}

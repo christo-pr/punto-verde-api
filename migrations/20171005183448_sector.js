@@ -2,8 +2,8 @@
 exports.up = function(knex, Promise) {
 	return Promise.all([
 	  knex.schema.createTable('sectors', function (table) {
-		  table.increments();
-		  table.uuid('uuid');
+		  table.string('uuid').primary();
+		  table.specificType('id','serial');
 		  table.string('name');
 		  table.timestamps();
 		})
