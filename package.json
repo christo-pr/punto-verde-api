@@ -6,6 +6,7 @@
     "bluebird": "^3.5.1",
     "knex": "^0.13.0",
     "lodash": "^4.17.4",
+    "moment": "^2.18.1",
     "passport": "^0.4.0",
     "passport-amazon-token": "^2.1.0",
     "passport-facebook-token": "^3.3.0",
