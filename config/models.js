@@ -15,6 +15,14 @@ module.exports = {
 		autoPK: true,
 
 		/**
+		 * Enabled the timestamps
+		 * @type {Boolean}
+		 * @type {Boolean}
+		 */
+	 	autoCreatedAt: true,
+		autoUpdatedAt: true,
+
+		/**
 		 * Your app's default connection
 		 * @type {String}
 		 */

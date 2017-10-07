@@ -3,33 +3,33 @@
 const uuid = require('uuid/v1');
 
 /**
- * Sector
- * @description :: Model for storing Sector records
+ * Neighborhood
+ * @description :: Model for storing Neighborhood records
  */
 
 module.exports = {
   schema: true,
 
-  tableName: 'sectors',
+	tableName: 'neighborhoods',
 
   attributes: {
+    // Fill your attributes here
     name: {
-      type: 'string',
-      required: true
+    	type: 'string',
+    	required: true
     },
 
-    neighborhoods: {
-      collection: 'neighborhood',
-      via: 'sector'
+    sector:{
+    	model: 'sector',
+    	columnName: 'sector_uuid'
     },
-    
+
     toJSON() {
       return this.toObject();
     }
   },
 
   beforeUpdate: (values, next) => next(),
-
   beforeCreate: (values, next) => {
   	values.uuid = uuid();
   	return next()

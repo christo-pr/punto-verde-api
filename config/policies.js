@@ -21,6 +21,10 @@ module.exports = {
 
     SectorController: {
     	'*': true
+    },
+
+    NeighborhoodController: {
+    	'*': true
     }
   }
 };
