@@ -22,22 +22,6 @@ module.exports = {
       required: true
     },
 
-    uuid: {
-    	type: 'text'
-    },
-
-    createdAt: {
-      type: 'datetime',
-      defaultsTo: null,
-      columnName: 'created_at'
-    },
-
-    updatedAt: {
-      type: 'datetime',
-      defaultsTo: null,
-      columnName: 'updated_at'
-    },
-
     toJSON() {
       return this.toObject();
     }
