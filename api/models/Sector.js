@@ -12,9 +12,9 @@ module.exports = {
 
   tableName: 'sectors',
 
-  autoCreatedAt: false,
+  autoCreatedAt: true,
 
- 	autoUpdatedAt: false,
+ 	autoUpdatedAt: true,
 
   attributes: {
     name: {
@@ -24,6 +24,18 @@ module.exports = {
 
     uuid: {
     	type: 'text'
+    },
+
+    createdAt: {
+      type: 'datetime',
+      defaultsTo: null,
+      columnName: 'created_at'
+    },
+
+    updatedAt: {
+      type: 'datetime',
+      defaultsTo: null,
+      columnName: 'updated_at'
     },
 
     toJSON() {
