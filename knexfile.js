@@ -13,7 +13,7 @@ module.exports = {
     //   user:     'username',
     //   password: 'password'
     // },
-    connection: process.env.PG_CONNECTION_STRING || 'postgres://ksvnxvwc:07ZxD-XY6ymz-Idki-Vu5scwkYlLePYm@stampy.db.elephantsql.com:5432/ksvnxvwc',
+    connection: process.env.PG_CONNECTION_STRING || 'postgres://cpmoymya:5J_0ECi3zCqdEtsiE8lMHIVepBwV_NUp@elmer.db.elephantsql.com:5432/cpmoymya',
     pool: {
       min: 2,
       max: 10
