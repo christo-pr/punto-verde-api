@@ -17,14 +17,14 @@ module.exports = {
 
     AuthController: {
       '*': true
-    },
-
-    SectorController: {
-    	'*': true
-    },
-
-    NeighborhoodController: {
-    	'*': true
     }
+
+    // SectorController: {
+    // 	'*': true
+    // },
+
+    // NeighborhoodController: {
+    // 	'*': true
+    // }
   }
 };

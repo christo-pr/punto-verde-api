@@ -1,5 +1,7 @@
 "use strict";
 
+const uuid = require('uuid/v1');
+
 /**
  * User
  * @description :: Model for storing users
@@ -8,43 +10,68 @@
 module.exports = {
   schema: true,
 
+  tableName: 'users',
+
   attributes: {
-    username: {
+    name: {
       type: 'string',
-      required: true,
-      unique: true,
-      alphanumericdashed: true
+      required: true
     },
 
-    password: {
+    age: {
+      type: 'integer'
+    },
+
+    genre: {
+      type: 'string'
+    },
+
+    phone: {
       type: 'string'
     },
 
     email: {
-      type: 'email',
-      required: true,
-      unique: true
+      type: 'string',
+      required: true
     },
 
-    firstName: {
+    password: {
       type: 'string',
-      defaultsTo: ''
+      defaultsTo: null
     },
 
-    lastName: {
-      type: 'string',
-      defaultsTo: ''
+    address: {
+      type: 'string'
     },
 
-    photo: {
+    role: {
       type: 'string',
-      defaultsTo: '',
-      url: true
+      defaultsTo: 'regular'
+    },
+
+    points: {
+      type: 'integer',
+      defaultsTo: 0
+    },
+
+    description: {
+      type: 'string'
+    },
+
+    RFC: {
+      type: 'string'
     },
 
     socialProfiles: {
       type: 'object',
-      defaultsTo: {}
+      defaultsTo: {},
+      columnName: 'social_profiles'
+    },
+
+    sector:{
+      model: 'sector',
+      required: true,
+      columnName: 'sector_uuid'
     },
 
     toJSON() {
@@ -70,6 +97,8 @@ module.exports = {
   },
 
   beforeCreate(values, next) {
+    values.uuid = uuid();
+
     if (false === values.hasOwnProperty('password')) return next();
 
     return HashService.bcrypt.hash(values.password)

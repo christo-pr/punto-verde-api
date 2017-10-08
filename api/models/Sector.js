@@ -22,6 +22,11 @@ module.exports = {
       collection: 'neighborhood',
       via: 'sector'
     },
+
+    users: {
+      collection: 'user',
+      via: 'sector'
+    },
     
     toJSON() {
       return this.toObject();
