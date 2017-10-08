@@ -3,32 +3,31 @@
 const uuid = require('uuid/v1');
 
 /**
- * Scrap
- * @description :: Model for storing Scrap records
+ * ScrapUser
+ * @description :: Model for storing ScrapUser records
  */
 
 module.exports = {
   schema: true,
 
-  tableName: 'scraps',
+  tableName: 'scrap_user',
 
   attributes: {
     // Fill your attributes here
-    name: {
-    	type: 'string',
-    	required: true
-    },
-
-    valuePerKg: {
+    scrapKg: {
     	type: 'float',
     	required: true,
-    	columnName: 'value_per_kg'
+    	columnName: 'scrap_kg'
     },
 
-    users: {
-    	collection: 'user',
-    	via: 'scrap',
-    	through: 'scrapuser'
+    user: {
+    	model: 'user',
+      columnName: 'user_uuid'
+    },
+
+    scrap: {
+    	model: 'scrap',
+      columnName: 'scrap_uuid'
     },
 
     toJSON() {

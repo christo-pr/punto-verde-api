@@ -74,6 +74,12 @@ module.exports = {
       columnName: 'sector_uuid'
     },
 
+    scraps: {
+      collection: 'scrap',
+      via: 'user',
+      through: 'scrapuser'
+    },
+
     toJSON() {
       let obj = this.toObject();
 
