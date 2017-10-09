@@ -70,7 +70,6 @@ module.exports = {
 
     sector:{
       model: 'sector',
-      required: true,
       columnName: 'sector_uuid'
     },
 
@@ -78,6 +77,13 @@ module.exports = {
       collection: 'scrap',
       via: 'user',
       through: 'scrapuser'
+    },
+
+    assets: {
+      collection: 'image',
+      via: 'user',
+      through: 'imageuser'
+
     },
 
     toJSON() {
