@@ -46,6 +46,9 @@ On the `knexfile.js` you must change this information with your local enviroment
 
 Now that we have our enviroment set up we just need to run the migrations and the seeds:
 
+> You may have to install [knexJs](http://knexjs.org/) globally.
+> `npm install knex -g`
+
 ```shell
 knex migrate:latest
 ```
