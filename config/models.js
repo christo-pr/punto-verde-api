@@ -12,7 +12,7 @@ module.exports = {
 		 * Removed the sail autogenerating pk
 		 * @type {String}
 		 */
-		autoPK: true,
+		autoPK: false,
 
 		/**
 		 * Enabled the timestamps

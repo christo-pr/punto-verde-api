@@ -62,11 +62,11 @@ module.exports = {
       type: 'string'
     },
 
-    socialProfiles: {
-      type: 'object',
-      defaultsTo: {},
-      columnName: 'social_profiles'
-    },
+    // socialProfiles: {
+    //   type: 'object',
+    //   defaultsTo: {},
+    //   columnName: 'social_profiles'
+    // },
 
     sector:{
       model: 'sector',

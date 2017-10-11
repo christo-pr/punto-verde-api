@@ -15,7 +15,7 @@ exports.up = function(knex, Promise) {
 		  table.integer('points').defaultTo(0);
 		  table.string('description').nullable().defaultTo(null);
 		  table.string('RFC').nullable().defaultTo(null);
-		  table.json('social_profiles').nullable().defaultTo(null);
+		  // table.json('social_profiles').nullable().defaultTo(null);
 		  table.string('sector_uuid').unsigned();
 		  table.foreign('sector_uuid').references('sectors.uuid')
 		  table.timestamps();
