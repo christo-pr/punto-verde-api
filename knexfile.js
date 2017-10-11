@@ -5,10 +5,10 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      host: '127.0.0.1',
-      database: 'put-your-db',
-      user:     'put-your-user',
-      password: 'put-your-pass'
+      host: process.env.DB_HOST ||'127.0.0.1',
+      database: process.env.DB ||'pv_devdb',
+      user:     process.env.DB_USER || 'root',
+      password: process.env.DB_PASS || 'root'
     },
     pool: {
       min: 2,

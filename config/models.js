@@ -26,7 +26,7 @@ module.exports = {
 		 * Your app's default connection
 		 * @type {String}
 		 */
-		connection: 'postgresql',
+		// connection: 'postgresql',
 
 		/**
 		 * How and whether Sails will attempt to automatically rebuild the tables/collections/etc. in your schema
