@@ -17,6 +17,8 @@ DB=
 NODE_ENV=development
 BLUEBIRD_WARNINGS=1
 BLUEBIRD_W_FORGOTTEN_RETURN=0
+SENDGRID_API_KEY=testing123
+SENDGRID_API_USER=puntoverdedev
 ```
 
 > For development enviroment we are using [postgresql.](https://www.postgresql.org/download/)
@@ -102,9 +104,18 @@ and we'll be able to acces to all endpoints.
 
 > All enpoints are under __/v1/__ prefix and are __RESTful__
 
+__Custom resources__
 ```javascript
 * /users
 * /sectors
 * /neighborhoods
 * /scraps
+```
+
+__Authentication__
+```javascript
+* /auth/signup  // -> signup users
+* /auth/signin  // -> signin users
+* /auth/forgot  // -> forgot password email handler
+* /auth/reset/:token  // -> reset password handler
 ```
