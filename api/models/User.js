@@ -102,7 +102,8 @@ module.exports = {
       let obj = this.toObject();
 
       delete obj.password;
-      delete obj.socialProfiles;
+      delete obj.resetPasswordToken;
+      delete obj.restPasswordExpiresAt;
 
       return obj;
     }
