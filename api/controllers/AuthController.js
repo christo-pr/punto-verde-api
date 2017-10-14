@@ -78,7 +78,7 @@ module.exports = {
    * @param req
    * @param res
    */
-   forgot_password(req, res) {
+  forgot_password(req, res) {
     async.waterfall([
       (next) => {
         crypto.randomBytes(20, function(err, buf) {
@@ -96,7 +96,7 @@ module.exports = {
               user.resetPasswordToken = token;
               user.resetPasswordExpiresAt = moment().add(1, 'hours').format(); // 1 hour from current time
 
-              user.save((err) => {
+              user.save( err => {
                 next(err, token, user);
               });
             })
@@ -116,26 +116,26 @@ module.exports = {
       if (response.message != 'success') res.serverError();
       res.ok();
     })
-   },
+  },
 
-   /**
+  /**
    * Logic to handle the reset password
    * @param req
    * @param res
    */
-   reset_password(req, res) {
-    async.waterfall([
-      User.findOne()
-          .where({ resetPasswordToken: req.params.token, resetPasswordExpiresAt: { '>': moment().format } })
-          then( user => {
-            if(!user) return res.badRequest(null, {message: 'Password reset token is invalid or has expired.'})
-            user.password = req.body.password;
-            user.resetPasswordToken = null;
-            user.resetPasswordExpiresAt = null;
-
+  reset_password(req, res) {
+    User.findOne()
+        .where({ resetPasswordToken: req.params.token, resetPasswordExpiresAt: { '>': moment().format() } })
+        .then( user => {
+          if(!user) return res.badRequest(null, {message: 'Password reset token is invalid or has expired.'})
+          user.password = req.body.password;
+          user.resetPasswordToken = null;
+          user.resetPasswordExpiresAt = null;
+          req.body.email = user.email;
+          user.save( err => {
+            if (err) return res.serverError();
+            this.signin(req, res);
           })
-    ], (result) => {
-
-    })
-   }
-};
+        })
+  }
+}

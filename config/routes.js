@@ -9,6 +9,6 @@
 module.exports = {
   routes: {
   	'post /v1/auth/forgot' : 'AuthController.forgot_password',
-  	'post /reset/:token': 'AuthController.reset_password'
+  	'post /v1/auth/reset/:token' : 'AuthController.reset_password'
   }
 };
