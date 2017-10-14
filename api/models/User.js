@@ -68,7 +68,7 @@ module.exports = {
       columnName: 'reset_password_token'
     },
 
-    restPasswordExpiresAt: {
+    resetPasswordExpiresAt: {
       type: 'datetime',
       defaultsTo: null,
       columnName: 'reset_password_expires_at'
