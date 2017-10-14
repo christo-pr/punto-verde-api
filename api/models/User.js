@@ -62,6 +62,18 @@ module.exports = {
       type: 'string'
     },
 
+    resetPasswordToken: {
+      type: 'string',
+      defaultsTo: null,
+      columnName: 'reset_password_token'
+    },
+
+    restPasswordExpiresAt: {
+      type: 'datetime',
+      defaultsTo: null,
+      columnName: 'reset_password_expires_at'
+    },
+
     // socialProfiles: {
     //   type: 'object',
     //   defaultsTo: {},
