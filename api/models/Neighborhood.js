@@ -18,7 +18,12 @@ module.exports = {
     	type: 'string',
     	required: true
     },
-    
+
+    active: {
+      type: 'boolean',
+      defaultsTo: false
+    },
+
     points: {
       type: 'integer',
       defaultsTo: 0
