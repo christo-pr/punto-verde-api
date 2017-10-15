@@ -18,6 +18,11 @@ module.exports = {
     	type: 'string',
     	required: true
     },
+    
+    points: {
+      type: 'integer',
+      defaultsTo: 0
+    },
 
     sector:{
     	model: 'sector',
