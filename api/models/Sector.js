@@ -37,6 +37,12 @@ module.exports = {
       collection: 'user',
       via: 'sector'
     },
+
+    scraps: {
+      collection: 'scrap',
+      via: 'sector',
+      through: 'scrapsector'
+    },
     
     toJSON() {
       return this.toObject();
