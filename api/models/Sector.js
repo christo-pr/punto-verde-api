@@ -18,6 +18,11 @@ module.exports = {
       required: true
     },
 
+    points:{
+      type: 'integer',
+      defaultsTo: 0
+    },
+
     neighborhoods: {
       collection: 'neighborhood',
       via: 'sector'
