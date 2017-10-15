@@ -34,6 +34,12 @@ module.exports = {
     	columnName: 'sector_uuid'
     },
 
+    scraps: {
+      collection: 'scrap',
+      via: 'neighborhood',
+      through: 'neighborhoodscrap'
+    },
+
     toJSON() {
       return this.toObject();
     }

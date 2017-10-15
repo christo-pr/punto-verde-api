@@ -31,6 +31,12 @@ module.exports = {
     	through: 'scrapuser'
     },
 
+    neighborhoods: {
+      collection: 'neighborhood',
+      via: 'scrap',
+      through: 'neighborhoodscrap'
+    },
+
     toJSON() {
       return this.toObject();
     }
