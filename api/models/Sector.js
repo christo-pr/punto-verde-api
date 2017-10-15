@@ -23,6 +23,11 @@ module.exports = {
       defaultsTo: 0
     },
 
+    active: {
+      type: 'boolean',
+      defaultsTo: false
+    },
+
     neighborhoods: {
       collection: 'neighborhood',
       via: 'sector'
