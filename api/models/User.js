@@ -110,7 +110,7 @@ module.exports = {
   },
 
   beforeUpdate(values, next) {
-    if (false === values.hasOwnProperty('password')) return next();
+    if (!values.password) return next();
     if (/^\$2[aby]\$[0-9]{2}\$.{53}$/.test(values.password)) return next();
 
     return HashService.bcrypt.hash(values.password)
@@ -124,7 +124,7 @@ module.exports = {
   beforeCreate(values, next) {
     values.uuid = uuid();
 
-    if (false === values.hasOwnProperty('password')) return next();
+    if (!values.password) return next();
 
     return HashService.bcrypt.hash(values.password)
       .then(hash => {
