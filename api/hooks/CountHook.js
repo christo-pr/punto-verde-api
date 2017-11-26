@@ -10,7 +10,7 @@ const pluralize = require('pluralize');
 
 const defaultCountBlueprint = (req, res) => {
   const Model = actionUtil.parseModel(req);
-  const countQuery = Model.count();
+  const countQuery = Model.count(JSON.parse(req.query.filter));
 
   countQuery.then(count => res.ok({count}));
 };
