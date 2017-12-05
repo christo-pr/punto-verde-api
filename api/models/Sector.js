@@ -1,6 +1,7 @@
 "use strict";
 
 const uuid = require('uuid/v1');
+const _ = require('lodash');
 
 /**
  * Sector
@@ -38,5 +39,15 @@ module.exports = {
   beforeCreate: (values, next) => {
   	values.uuid = uuid();
   	return next()
+  },
+
+  beforeDestroy: (criteria, next) => {
+    Sector.findOne(criteria).populate('users')
+      .exec( (err, sector) => {
+        if (err) return next(err);
+
+        User.destroy({ uuid:  _.map(sector.users, 'uuid') }).exec( (err) => { if (err) next(err) });
+        next();
+      })
   }
 };
