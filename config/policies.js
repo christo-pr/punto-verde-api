@@ -13,17 +13,16 @@
 
 module.exports = {
   policies: {
-    '*': true
-    // '*': ['isAuthenticated'],
+    '*': ['isAuthenticated'],
 
-    // AuthController: {
-    //   '*': true
-    // },
+    AuthController: {
+      '*': true
+    }
 
     // SectorController: {
     // 	'find': true
     // },
-    
+
     // UserController: {
     // 	'create': true
     // }
