@@ -14,6 +14,7 @@ const populateAlias = (model, alias) => model.populate(alias);
  * If an id was specified, just the instance with that unique id will be returned.
  */
 module.exports = (req, res) => {
+  let total = 0;
   _.set(req.options, 'criteria.blacklist', ['fields', 'populate', 'limit', 'skip', 'page', 'sort']);
 
   const fields = req.param('fields') ? req.param('fields').replace(/ /g, '').split(',') : [];
@@ -26,16 +27,21 @@ module.exports = (req, res) => {
   const query = Model.find(null, fields.length > 0 ? {select: fields} : null).where(where).limit(limit).skip(skip).sort(sort);
   const findQuery = _.reduce(_.intersection(populate, takeAlias(Model.associations)), populateAlias, query);
 
-  findQuery
-    .then(records => [records, {
-      root: {
-        criteria: where,
-        limit: limit,
-        start: skip,
-        end: skip + limit,
-        page: Math.floor(skip / limit)
-      }
-    }])
-    .spread(res.ok)
-    .catch(res.negotiate);
+  /** Set the total count of the model */
+  Model.count().then( count => {
+    total = count
+    findQuery
+      .then(records => [records, {
+        root: {
+          criteria: where,
+          limit: limit,
+          start: skip,
+          end: skip + limit,
+          page: Math.floor(skip / limit),
+          total: total
+        }
+      }])
+      .spread(res.ok)
+      .catch(res.negotiate);
+  });
 };

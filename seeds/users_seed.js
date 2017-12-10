@@ -10,7 +10,7 @@ exports.seed = function(knex, Promise) {
   return knex('users').del()
     .then(() => {
       // // Inserts seed entries
-      for (let i = 0; i < 100; i ++) {
+      for (let i = 0; i < 20; i ++) {
         usersInserted.push({
           uuid: uuid(),
           name: faker.name.findName(),
