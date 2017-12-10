@@ -40,8 +40,9 @@
     "uuid": "^3.1.0"
   },
   "devDependencies": {
-    "esdoc": "0.4.3",
     "chai": "3.4.1",
+    "esdoc": "0.4.3",
+    "faker": "^4.1.0",
     "istanbul": "0.4.2",
     "mocha": "2.3.4",
     "sails-memory": "0.10.5",
