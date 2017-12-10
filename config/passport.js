@@ -44,7 +44,7 @@ const LOCAL_STRATEGY_CONFIG = {
  * @private
  */
 const JWT_STRATEGY_CONFIG = {
-  secretOrKey: 'DEFAULT_SECRET_KEY',
+  secretOrKey: `${process.env.JWT_SECRET_KEY}`,
   jwtFromRequest: ExtractJwt.versionOneCompatibility({authScheme: 'Bearer', tokenBodyField: 'access_token'}),
   tokenQueryParameterName: 'access_token',
   session: false,
@@ -73,8 +73,12 @@ const SOCIAL_STRATEGY_CONFIG = {
  * @private
  */
 const _onLocalStrategyAuth = (req, username, password, next) => {
+  let criteria = {[LOCAL_STRATEGY_CONFIG.usernameField]: username};
+  if (req.body.adminOnly) {
+    criteria = {[LOCAL_STRATEGY_CONFIG.usernameField]: username, role: 'admin'}
+  }
   User
-    .findOne({[LOCAL_STRATEGY_CONFIG.usernameField]: username})
+    .findOne(criteria)
     .then(user => {
       if (!user) return next(null, null, sails.config.errors.USER_NOT_FOUND);
       if (!HashService.bcrypt.compareSync(password, user.password)) return next(null, null, sails.config.errors.USER_NOT_FOUND);
