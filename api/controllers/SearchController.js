@@ -14,6 +14,7 @@ const parseModels = _.flow(toLowerCase, _.method('split', ','));
 module.exports = {
   index(req, res) {
     const q = req.param('q');
+    const role = req.param('role');
     if (!q) return res.badRequest(null, {message: 'You should specify a "q" parameter!'});
 
     const models = parseModels(req.param('models')) || _.keys(sails.models);
@@ -23,7 +24,12 @@ module.exports = {
 
         if (!model) return res;
 
-        const where = _.transform(model.definition, (result, val, key) => result.or.push(_.set({}, key, {contains: q})), {or: []});
+        let fields = ['name', 'email', 'RFC'];
+
+        const where = _.transform(_.pick(model.definition, fields), (result, val, key) => result.or.push(_.set({}, key, {contains: q})), {or: []});
+        if (modelName === 'user' && role) {
+          where.role = role;
+        }
 
         return Promise.join(modelName, model.find(where), _.partial(_.set, res));
       }, {})
