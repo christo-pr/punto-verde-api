@@ -88,7 +88,7 @@ module.exports = {
     scraps: {
       collection: 'scrap',
       via: 'user',
-      through: 'scrapuser'
+      through: 'recycleuser'
     },
 
     assets: {

@@ -37,7 +37,7 @@ module.exports = {
     scraps: {
       collection: 'scrap',
       via: 'neighborhood',
-      through: 'neighborhoodscrap'
+      through: 'recycleneighborhood'
     },
 
     toJSON() {

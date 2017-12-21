@@ -28,13 +28,13 @@ module.exports = {
     users: {
     	collection: 'user',
     	via: 'scrap',
-    	through: 'scrapuser'
+    	through: 'recycleuser'
     },
 
     neighborhoods: {
       collection: 'neighborhood',
       via: 'scrap',
-      through: 'neighborhoodscrap'
+      through: 'recycleneighborhood'
     },
 
     toJSON() {
