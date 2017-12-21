@@ -22,7 +22,7 @@ module.exports = {
 
     neighborhood: {
     	model: 'neighborhood',
-      columnName: 'neighborhood_uuid'
+      columnName: 'neighborhod_uuid'
     },
 
     scrap: {
