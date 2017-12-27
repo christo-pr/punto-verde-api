@@ -39,5 +39,9 @@ module.exports = {
   beforeCreate: (values, next) => {
   	values.uuid = uuid();
   	return next()
+  },
+
+  afterCreate: (newlyRecords, next) => {
+    User.addPoints({ userId: newlyRecords.user, points: parseInt(newlyRecords.scrapKg)}, next)
   }
 };

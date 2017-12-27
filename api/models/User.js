@@ -109,6 +109,26 @@ module.exports = {
     }
   },
 
+  addPoints: (opts, next) => {
+    let userId = opts.userId;
+    let points = opts.points;
+
+    if (!userId) return next(new Error('Please specify a user uuid'));
+    User.findOne(userId)
+      .then((user, err) => {
+        if (err) return next(err);
+        return user
+      })
+      .then( user => {
+        user.points += points;
+        user.save().then((user, err) => {
+          if(err) return next(err);
+          return next();
+        });
+      });
+
+  },
+
   beforeUpdate(values, next) {
     if (!values.password) return next();
     if (/^\$2[aby]\$[0-9]{2}\$.{53}$/.test(values.password)) return next();
