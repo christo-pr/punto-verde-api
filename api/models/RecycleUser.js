@@ -42,6 +42,6 @@ module.exports = {
   },
 
   afterCreate: (newlyRecords, next) => {
-    User.addPoints({ userId: newlyRecords.user, points: parseInt(newlyRecords.scrapKg)}, next)
+    User.addPoints({ userId: newlyRecords.user, points: parseFloat(newlyRecords.scrapKg)}, next)
   }
 };

@@ -50,8 +50,8 @@ module.exports = {
     },
 
     points: {
-      type: 'integer',
-      defaultsTo: 0
+      type: 'float',
+      defaultsTo: 0.00
     },
 
     description: {
@@ -120,7 +120,7 @@ module.exports = {
         return user
       })
       .then( user => {
-        user.points += points;
+        user.points = parseFloat(user.points) + points;
         user.save().then((user, err) => {
           if(err) return next(err);
           return next();
