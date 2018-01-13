@@ -17,14 +17,14 @@ module.exports = {
 
     AuthController: {
       '*': true
-    },
+    }
 
     // SectorController: {
     // 	'find': true
     // },
 
-    UserController: {
-    	'*': true
-    }
+    // UserController: {
+    // 	'*': true
+    // }
   }
 };

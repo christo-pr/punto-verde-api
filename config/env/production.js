@@ -9,5 +9,8 @@ module.exports = {
   port: 80,
   log: {
     level: 'info'
+  },
+  models: {
+    connection: 'postgresql'
   }
 };
