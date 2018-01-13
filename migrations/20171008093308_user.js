@@ -8,7 +8,7 @@ exports.up = function(knex, Promise) {
 		  table.integer('age');
 		  table.string('genre');
 		  table.string('phone');
-		  table.string('email');
+		  table.string('email').unique();
 		  table.string('password');
 		  table.string('address');
 		  table.enu('role', ['admin', 'regular', 'company']);
