@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
 	  knex.schema.createTable('neighborhoods', function (table) {
 		  table.string('uuid').primary();
 		  table.specificType('id','serial');
-		  table.string('name').unique();
+		  table.string('name')
 		  table.string('sector_uuid').unsigned();
 		  table.foreign('sector_uuid').references('sectors.uuid')
 		  table.timestamps();
