@@ -17,6 +17,10 @@ module.exports = {
 
     AuthController: {
       '*': true
+    },
+
+    PingController: {
+      '*': true
     }
 
     // SectorController: {
